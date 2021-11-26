@@ -197,6 +197,7 @@ async function editStoryClick(evt) {
   const $closestLi = $(evt.target).closest("li");
   const storyId = $closestLi.attr("id");
   //let test = $closestLi.find("a").text();
+  let link = $closestLi.find("a").attr('href');
   let title, url, author;
   title = getStoryChildren($closestLi, 3);
   url =   getStoryChildren($closestLi, 4);
@@ -208,7 +209,7 @@ async function editStoryClick(evt) {
   const $div = $("#edit-form div");
   const $editForm = $("#edit-form");
   $("#edit-title").val(title.trim());
-  $("#edit-url").val(url.trim());
+  $("#edit-url").val(link);
   $("#edit-author").val(author.trim());
   $div.attr("id", storyId);
   $editForm.show();
